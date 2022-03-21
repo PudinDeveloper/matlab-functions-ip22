@@ -1,6 +1,5 @@
-function b = movav(a, mw, nw)
+function b = movav(a, h)
 
-    h = ones(nw, mw)/(mw*nw);
     b = uint8(filter2(h, a, 'valid'));
 
 end
