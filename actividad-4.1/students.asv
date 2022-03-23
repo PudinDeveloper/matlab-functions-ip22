@@ -37,7 +37,7 @@ figure, imshow(Ifm,[]); title('Log de Magnitud de TF de Imagen');
 % Qué hace fftshift?
 Ifm=fftshift(Ifm);
 figure, imshow(Ifm,[]); title('Log de Magnitud de Imagen con Frec. Bajas centradas');
-imshow(mesh(log(abs(Ifm))), [-1, 5]); colormap("jet"); colorbar;
+imshow(log(abs(Ifm)))
 % If es la imagen recuperada en el dominio espacial, pero tiene números
 % imaginarios, por lo cual, hay que eliminarlos con "real" o bien, con
 % con el valor absoluto "abs"
