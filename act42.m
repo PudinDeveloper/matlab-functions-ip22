@@ -11,12 +11,12 @@ end
 % La imagen se convierte en tipo de dato double.
 I=im2double(I); 
 % Se aplica la degradación motion con la función fspecial().
-PSF = fspecial('motion', 100, 450); 
+PSF = fspecial('motion', 10, 45); 
 % Se aplica el filtro de convolución circular.
 ID = imfilter(I, PSF, 'conv','circular');
 % En estas variables se especifíca el nivel de ruido.
 MR = 0; % MR = valores de luminosidad.
-VR = 0.001; % VR = Nivel de ruido.
+VR = 0; % VR = Nivel de ruido.
 % Se aplica ruido gaussiano usando las variables anteriores.
 IDR = imnoise(ID, 'gaussian',MR,VR);
 % Se agregan los valores y patrones de la imagen en la variable.
@@ -27,6 +27,6 @@ IrFW = deconvwnr(IDR, PSF, Est_Ruido);
 % Se muestran los resultados en un subplot.
 figure 
 subplot(2,2,1), imshow(I), title('Imagen Original'); 
-subplot(2,2,2), imshow(ID), title('Imagen I (Conv Circular)');
-subplot(2,2,3), imshow(IDR), title('Imagen IDR (imnoise Gaussian)'); 
-subplot(2,2,4), imshow(IrFW), title('Imagen IrFW (deconvwnr (Ruido))');
+subplot(2,2,2), imshow(ID), title('Imagen con convolución circular');
+subplot(2,2,3), imshow(IDR), title('Imagen con ruido gaussiano'); 
+subplot(2,2,4), imshow(IrFW), title('Imagen restaurada');
