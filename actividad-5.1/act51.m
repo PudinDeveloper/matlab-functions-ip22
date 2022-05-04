@@ -1,4 +1,4 @@
-gatitoOr = imread("./imagenes/gatito.jpg");
+gatitoOr = imread("./imagenes/ciudad.jpg");
 gatito = rgb2gray(gatitoOr);
 gatito = (imbinarize(gatito));
 
