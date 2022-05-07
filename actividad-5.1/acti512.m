@@ -6,6 +6,8 @@ b = [35, 1, 6, 26, 19, 24;
      4, 36, 29, 13, 18, 11;
 ];
 
+s = strel('line', 3,45);
+
 se = [0 1 0; 1 1 1; 0 1 0];
 
 a = imdilate(b, se);
@@ -22,3 +24,5 @@ bin = [
 
 bina = imdilate(bin, se);
 bino = imerode(bin, se);
+
+imshow(a);
