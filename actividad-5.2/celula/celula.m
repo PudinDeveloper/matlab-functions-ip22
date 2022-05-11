@@ -28,4 +28,9 @@ title('Dilated Gradient Mask')
 % Paso 4: Llenar los huecos interiores
 BWdfill = imfill(BWsdil,'holes');
 imshow(BWdfill)
-title('Binary Image with Filled Holes')
+title('Binary Image with Filled Holes');
+
+% Paso 5: Eliminar los objetos conectados en los bordes
+BWnobord = imclearborder(BWdfill,4);
+imshow(BWnobord)
+title('Cleared Border Image');
