@@ -20,3 +20,28 @@ bw = bwareaopen(bw,50);
 imshow(bw);
 
 % Parte 4 - Identificar objetos de una imágen.
+cc = bwconncomp(bw,4);
+cc.NumObjects;
+grain = false(size(bw));
+grain(cc.PixelIdxList{50}) = true;
+imshow(grain);
+
+% Parte 5 - Identificar objetos de una imágen en un mapa matriz de colores.
+labeled = labelmatrix(cc);
+whos labeled
+RGB_label = label2rgb(labeled,'spring','c','shuffle');
+imshow(RGB_label);
+
+% Parte 6 - Procesar el area de cada objeto en la imágen.
+graindata = regionprops(cc,'basic');
+grain_areas = [graindata.Area];
+grain_areas(50);
+
+[min_area, idx] = min(grain_areas);
+
+grain = false(size(bw));
+grain(cc.PixelIdxList{idx}) = true;
+imshow(grain);
+
+histogram(grain_areas);
+title('Histogram of Rice Grain Area');
