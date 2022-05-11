@@ -15,4 +15,12 @@ text(size(I,2),size(I,1)+25, ....
 fudgeFactor = 0.5;
 BWs = edge(I,'sobel',threshold * fudgeFactor);
 imshow(BWs)
-title('Binary Gradient Mask')
+title('Binary Gradient Mask');
+
+% Paso 3: Dilatar la imagen
+se90 = strel('line',3,90);
+se0 = strel('line',3,0);
+
+BWsdil = imdilate(BWs,[se90 se0]);
+imshow(BWsdil)
+title('Dilated Gradient Mask')
