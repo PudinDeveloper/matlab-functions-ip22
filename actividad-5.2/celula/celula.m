@@ -34,3 +34,10 @@ title('Binary Image with Filled Holes');
 BWnobord = imclearborder(BWdfill,4);
 imshow(BWnobord)
 title('Cleared Border Image');
+
+% Paso 6: Suavizar el objeto
+seD = strel('diamond',1);
+BWfinal = imerode(BWnobord,seD);
+BWfinal = imerode(BWfinal,seD);
+imshow(BWfinal)
+title('Segmented Image');
