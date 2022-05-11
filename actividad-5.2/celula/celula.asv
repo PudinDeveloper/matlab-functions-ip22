@@ -43,11 +43,3 @@ imshow(BWfinal)
 title('Segmented Image');
 
 % Paso 7: Visualizar la segmentación
-imshow(labeloverlay(I,BWfinal))
-title('Mask Over Original Image')
-
-BWoutline = bwperim(BWfinal);
-Segout = I; 
-Segout(BWoutline) = 255; 
-imshow(Segout)
-title('Outlined Original Image')
