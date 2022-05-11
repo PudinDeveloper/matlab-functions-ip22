@@ -24,3 +24,8 @@ se0 = strel('line',3,0);
 BWsdil = imdilate(BWs,[se90 se0]);
 imshow(BWsdil)
 title('Dilated Gradient Mask')
+
+% Paso 4: Llenar los huecos interiores
+BWdfill = imfill(BWsdil,'holes');
+imshow(BWdfill)
+title('Binary Image with Filled Holes')
