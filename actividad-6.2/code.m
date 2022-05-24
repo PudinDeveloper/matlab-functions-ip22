@@ -2,14 +2,14 @@
 % posteriormente se muestra con la función imshow.
 rgb = imread('coloredChips.png');
 figure
-% imshow(rgb)
+imshow(rgb)
 
 % 2. Esta parte nos permite añadir de manera interactiva una linea que
 % muestra valores segun la posición donde se encunetre seleccionada.
-% d = imdistline;
+d = imdistline;
 
 % 3. Nos permite eliminar la linea de la imágen generada anteriormente.
-% delete(d);
+delete(d);
 
 % 4. Esta función nos permite convertir la imágen origianl a escala de
 % grises para seguir trabajando con propiedades de la misma.
@@ -27,7 +27,8 @@ imshow(h);
 % observar que mayormente solo quedán marcados azules y rojos, y una de
 % color verde. 
 [centers, radii] = imfindcircles(rgb,[20 25],'ObjectPolarity','dark','Sensitivity',0.9);
-delete(h) % Se borra la variable h que contenía variables de center y radii para la identificación de los circulos.
+delete(h)   % Se borra la variable h que contenía variables de center y radii 
+            % para la identificación de los circulos.
 imshow(rgb);
 h = viscircles(centers,radii);
 
@@ -66,7 +67,9 @@ hBrigth = viscircles(centersBright, radiiBright,'EdgeColor','b');
 % el contorno y ademas varias métricas de luminosidad, es posible
 % seleccionar todos los círculos correctamente e incluso se podrían extraer
 % de la imágen.
-[centersBright, radiiBright, metricBright] = imfindcircles(rgb,[20 25],'ObjectPolarity','bright','Sensitivity',0.92,'EdgeThreshold',0.1);
+[centersBright, radiiBright, metricBright] = imfindcircles(rgb,[20 
+25],'ObjectPolarity','bright','Sensitivity',0.92,'EdgeThreshold',0.1);
 hBright = viscircles(centersBright, radiiBright,'EdgeColor','b');
-[centersDark, radiiDark, metricDark] = imfindcircles(rgb,[20 25],'ObjectPolarity','dark','Sensitivity',0.92,'EdgeThreshold',0.1);
+[centersDark, radiiDark, metricDark] = imfindcircles(rgb,[20 
+25],'ObjectPolarity','dark','Sensitivity',0.92,'EdgeThreshold',0.1);
 hDark = viscircles(centersDark, radiiDark,'EdgeColor','g');
