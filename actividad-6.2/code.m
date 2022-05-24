@@ -2,24 +2,25 @@
 % posteriormente se muestra con la función imshow.
 rgb = imread('coloredChips.png');
 figure
-imshow(rgb)
+% imshow(rgb)
 
 % 2. Esta parte nos permite añadir de manera interactiva una linea que
 % muestra valores segun la posición donde se encunetre seleccionada.
-d = imdistline;
+% d = imdistline;
 
-% % 3. ???????????????
-% pause
+% 3. Nos permite eliminar la linea de la imágen generada anteriormente.
 % delete(d);
-% % 4. ???????????????
-% gray_image = rgb2gray(rgb);
-% imshow(gray_image); title('??????????????')
+
+% 4. Esta función nos permite convertir la imágen origianl a escala de
+% grises para seguir trabajando con propiedades de la misma.
+gray_image = rgb2gray(rgb);
+imshow(gray_image); title('Conversión a Escala de Grises');
 
 % % 5. ???????????????
 % % Qué contienen las variables: centers y radii?
-% [centers, radii] = imfindcircles(rgb,[20 25],'ObjectPolarity','dark');
-% imshow(rgb);
-% h = viscircles(centers,radii);
+[centers, radii] = imfindcircles(rgb,[20 25],'ObjectPolarity','dark');
+imshow(rgb);
+h = viscircles(centers,radii);
 
 % % 6. ???????????????
 % [centers, radii] = imfindcircles(rgb,[20 25],'ObjectPolarity','dark','Sensitivity',0.9);
