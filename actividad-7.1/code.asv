@@ -1,0 +1,13 @@
+tronco = imread("./imagenes/tronco.bmp");
+mariposa = imread("./imagenes/mariposa.bmp");
+troncoMariposa = imread("./imagenes/troncoMariposa.bmp");
+
+mariposa = fft2(mariposa);
+troncoMariposa = fft2(troncoMariposa);
+
+mConj = conj(mariposa)./abs(mariposa);
+
+t = mConj * troncoMariposa;
+
+it= ifft2(t);
+imshow(it, []);
