@@ -1,13 +1,12 @@
 tronco = imread("./imagenes/tronco.bmp");
-mariposa = imread("./imagenes/mariposaBlanco.bmp");
+mariposa = imread("./imagenes/mariposa.bmp");
 troncoMariposa = imread("./imagenes/troncoMariposa.bmp");
 
 mariposaF = fft2(mariposa);
 troncoMariposaF = fft2(troncoMariposa);
 
-%matched filtro correspondenciaS
 mConj = conj(mariposaF);
-
+f
 t = mConj .* troncoMariposaF;
 
 it= fftshift(ifft2(t));
